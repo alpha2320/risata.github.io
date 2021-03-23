@@ -1,0 +1,261 @@
+html {
+    max-width: 100%;
+    overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+
+nav{
+	height: 80px;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	
+	
+}
+nav .logo{
+	font-size: 36px;
+	color: #f28586;
+	font-weight: 1200;
+	margin-left: -160px;
+}
+
+
+nav ul{
+	display: flex;
+	list-style: none;
+	margin-right:-190px; 
+}
+
+nav ul li{
+	margin: 0px 5px;
+	
+}
+nav ul li a{
+	color:#f28586;
+	text-decoration: none;
+	font-weight: 400;
+	font-size: 18px;
+	padding: 5px 15px;
+	border-radius: 5px;
+	transition:all 0.3s ease-in-out;
+}
+
+nav ul li a:hover{
+
+	background-color: rgb(173, 17, 17);
+	padding: 5px 15px;
+	border-radius: 3px;
+	
+}
+nav .menu-btn i{
+	color:#f28586;
+	font-size: 30px;
+	display: none;
+
+
+}
+#click{
+	display: none;
+}
+/* main portion starts*/
+
+main .container-1{
+
+	background-image: url("./pexels-daria-shevtsova-1070850.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 90vh;
+	display: grid;
+	grid-template-columns: 33.3% 33.3% 33.3% ;
+	grid-template-rows: 15% 40% 45%;
+}
+
+
+main .container-1 h1{
+	grid-column:2/3 ;
+	grid-row: 3/4;
+    position: relative;
+	left: 38%;
+	top: 90%;
+	font-size: 18px;
+	color:#f28586;
+	font-weight: lighter;
+}
+
+main .container-1 #content-1 {
+	grid-column: 1/2;
+	grid-row: 2/3;
+	position: relative;
+	left: 12%;
+	top: 20%;
+
+
+}
+
+main .container-1 img{
+grid-column:2/3;
+grid-row: 2/3;
+position: relative;
+left: 1%;
+top: 45%;
+border-radius: 5%;
+animation: fadeInAnimation ease 5s ;
+    
+    animation-fill-mode: forwards; 
+}
+@keyframes fadeInAnimation { 
+	0% { 
+		opacity: 0; 
+	} 
+	100% { 
+		opacity: 1; 
+	} 
+} 
+main .container-1 i {
+	grid-column: 2/3;
+	grid-row: 3/4;
+	position: relative;
+	top: 90%;
+	left:45% ;
+	font-size: 2em;
+
+
+
+}
+
+main .container-2 {
+	height: 90vh;
+
+}
+
+/*container-2 beging*/
+main .container-2{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 0.3fr 1.7fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+	  "heading heading heading heading"
+	  "para para pic pic"
+	  "para para pic pic";
+}
+main .container-2 .heading{
+	position: relative;
+	top: 20%;
+	left: 42%;
+	font-size: 48px ;
+	display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2.6fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ".";
+  grid-area: heading;
+
+}
+
+main .container-2 .pic{
+	display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ".";
+  grid-area: pic;
+
+  position: relative;
+  left: 20%;
+  top: 10%;
+  
+}
+
+main .container-2 .para {
+	display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ".";
+  grid-area: para;
+  position: relative;
+  top: 30%;
+  left: 5%;
+}
+
+/*container 3 begind*/
+
+main .container-3 {
+
+	height: 90vh;
+
+}
+
+main .container-3 h1{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 42px;
+}
+
+@media (max-width:440px) {
+
+	#click:checked ~ .menu-btn i:before{
+		content: "\f00d";
+		transition: all 0.5s ease-in-out;
+	}
+	nav .logo{
+		margin-left: -15px;
+	}
+
+	nav .menu-btn i{
+		display: block;
+		margin-right: -25px;
+	}
+
+	nav ul{
+		position: fixed;
+		top: 80px;
+		left: 100%;
+		background-color:white;
+		height: 100vh;
+		width: 100%;
+		display: block;
+		text-align: center;
+		transition: all 0.3s ease-in-out;
+
+	}
+	#click:checked ~ ul{
+	  left: -26%;
+	  transition: all 0.5s ease-in-out;
+	}
+	nav ul li{
+		margin: 15% 30% ;
+	}
+
+	
+	
+	nav ul li a {
+		font-size: 28px;
+		display: block;
+		
+	}
+	nav ul li a:hover{
+
+		color: rgb(173, 17, 17);
+		background: none;
+	}
+
+}

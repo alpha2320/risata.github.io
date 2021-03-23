@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsivestyle.css">
+    <link rel="stylesheet" href="card.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />  
+    <title>Document</title>
+
+
+    <style>
+
+
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+      
+      /* Modal Content */
+      .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+      
+      /* The Close Button */
+      .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      </style>
+      </head>
+    
+</head>
+<body>
+  <nav>
+        
+        <div class="logo"><strong>Risata</strong></div>
+        <input type="checkbox" name="" id="click">
+        <label for="click" class="menu-btn" >
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul class="links">
+            <li><a  href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Store</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+       
+    </nav>
+    <!-- Trigger/Open The Modal -->
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>THIS SITE IS UNDER DEVELOPMENT</p>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+window.onload  = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+
+    
+
+
+    <main>
+      
+        <div class="container-1">
+             <h1>By Muskan Ahuja</h1>
+            <img src="./logo.svg" alt="">
+        </div>
+
+        <div class="container-2">
+            <div class="heading" data-aos="fade-up"
+            data-aos-offset="350"  data-aos-easing="ease-in-out" >What is Risata?</div>
+            <div class="pic" data-aos="fade-left"  data-aos-easing="ease-in-out" data-aos-offset="350">
+                <img width="500px" height="500px"  src="./Screenshot 2021-03-12 at 3.32.59.png" alt="">
+            </div>
+            <div class="para" data-aos="fade-up"  data-aos-easing="ease-in-out" data-aos-offset="350" >Risata is a long-lived childhood dream come true. Pastry chef Muskan Ahuja, founder and head chef at Risata, realised early in life that desserts are her true calling, and she wanted to share this passion with the rest of the world. Unfortunately, genuine and authentic desserts are not easily available, and often they lack that personalized touch, and Risata is a humble attempt to change that.
+                Our one true passion lies in creating the perfect dessert for our customers, using only high quality ingredients, utmost precision and of course a lot of love.</div>
+        </div>
+
+        <div class="container-3"  >
+           <h1>Cakes</h1> 
+            <section class="hero-section">
+                <div class="card-grid">
+                  <a data-aos="zoom-in-up" class="card" href="#">
+                    <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)"></div>
+                    <div class="card__content">
+                      <p class="card__category">Category</p>
+                      <h3 class="card__heading">Example Card Heading</h3>
+                    </div>
+                  </a>
+                  <a data-aos="zoom-in-up" class="card" href="#">
+                    <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557187666-4fd70cf76254?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+                    <div class="card__content">
+                      <p class="card__category">Category</p>
+                      <h3 class="card__heading">Example Card Heading</h3>
+                    </div>
+                  </a>
+                  <a class="card" href="#">
+                    <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1556680262-9990363a3e6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+                    <div class="card__content">
+                      <p class="card__category">Category</p>
+                      <h3 class="card__heading">Example Card Heading</h3>
+                    </div>
+                  </li>
+                  <a class="card" href="#">
+                    <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557004396-66e4174d7bf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+                    <div class="card__content">
+                      <p class="card__category">Category</p>
+                      <h3 class="card__heading">Example Card Heading</h3>
+                    </div>
+                  </a>
+                  <a class="card" href="#">
+                    <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557004396-66e4174d7bf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+                    <div class="card__content">
+                      <p class="card__category">Category</p>
+                      <h3 class="card__heading">Example Card Heading</h3>
+                    </div>
+                  </a>
+                  <a class="card" href="#">
+                    <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557187666-4fd70cf76254?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+                    <div class="card__content">
+                      <p class="card__category">Category</p>
+                      <h3 class="card__heading">Example Card Heading</h3>
+                    </div>
+                  </a>
+                <div>
+              </section> 
+            </div>
+
+    </main>
+   
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
