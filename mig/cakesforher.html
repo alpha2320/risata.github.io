@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="..//cake.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--navbar starts-->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<div class="w-full  text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+  <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+    <div class="p-4 flex flex-row items-center justify-between">
+      <a href="#" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Risata</a>
+      <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+          <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+          <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </div>
+    <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+      <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="..//index.html">Home</a>
+      <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">About Us</a>
+      <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Corporate Gifting</a>
+      <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Blog</a>
+
+      <div @click.away="open = false" class="relative" x-data="{ open: false }">
+        <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline  px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+          <span>Catalog</span>
+          <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </button>
+        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 z-20 origin-top-right rounded-md shadow-lg md:w-48">
+          <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Muffins & Loaf Cakes</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="serviceworker.html">CupCakes</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="serviceworker.html">Travel Cakes</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="serviceworker.html">Party Cakes</a>
+
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Breads & Crisps</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Brownies & Cheesecakes</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Donuts & Berliners</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Cookies</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">The French Edition</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">High Tea & Kitty Parties</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Hampers & Gifting</a>
+         
+         </div>
+        </div>
+      </div>    
+    </nav>
+  </div>
+</div>
+
+  <!--navbar ends-->
+<!--cards-->
+<header>
+    <h2 class="  text-black  text-5xl font-semibold ml-5 ">Cakes For Her</h2>
+    
+  </header  >
+  <div class=" p-4 ">
+    <h4 class="font-bold mt-3 pb-2 border-b border-gray-200">
+      Most Popular Choice
+    </h4>
+    <div class="mt-8 grid lg:grid-cols-6 gap-10">
+       <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/Collage 2020-11-28 00_01_39__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #001</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/Collage 2020-11-28 00_05_46__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #002</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/Collage 2021-05-09 12_22_36__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #003</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/Collage 2021-05-09 12_23_21__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #004</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG-20200616-WA0154.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #005</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG-20210510-WA0043.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #006</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20200917_061135__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #006</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20200917_162935__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #007</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20200930_163602__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #008</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20201001_174849__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #009</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20201007_171820__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #010</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->  <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20201124_161743__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #011</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20201128_094445__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #012</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20201129_141601.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #013</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20201205_163553__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #014</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20201206_185017__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #015</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->  
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20201208_104556__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #016</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20201213_120602__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #017</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20201222_180933__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #018</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210101_133709__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #019</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210102_124500__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #020</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->   
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210103_170216__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #021</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210106_163409__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #022</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210106_181958__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #023</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210108_164745__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #024</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->  
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210111_154907__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #025</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->  
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210122_201558__01__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #026</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->  
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210126_205039__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #027</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210127_162326__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #028</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210128_170100__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #029</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210203_123156__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #030</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210223_162424__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #031</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->  
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210225_102400__01__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #032</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END--> 
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210228_171011__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #033</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->   
+               
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210304_121230__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #034</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+       <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210313_115740__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #035</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210318_094853__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #036</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210318_122810__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #037</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210319_115034__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #038</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210321_165530__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #039</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210321_165848__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #040</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210323_081927__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #041</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210327_163249__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #042</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210327_163314__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #043</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+                      
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210329_165537__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #044</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210412_210955_615.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #045</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210418_170515.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #046</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210419_072020__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #047</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210419_182455__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #048</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210501_181705.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #049</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210505_171142.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #050</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+       <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210507_080544__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #051</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210508_170138__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #052</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210509_072415__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #053</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210517_164400__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #054</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210519_090130_816.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #055</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210520_164456__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #056</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210523_173227__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #057</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210525_130357__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #058</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210525_131500__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #059</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210525_163011__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #060</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/IMG_20210526_105219__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #061</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+        
+
+        <!--MAIN CARD START-->
+       <div   class="card hover:shadow-lg">
+        <img
+          src="../Risatadesserts/Cakes_for_her/Screenshot_20210317-103518__01.jpg"
+          alt="stew"
+          class="w-full p h-56 sm:h-48 object-fill"
+        />
+        <div class="m-4">
+          <span class="font-bold">cake #062</span>
+         
+        </div>
+        <a href="order.html"><button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-10 py-2  ml-3 mb-3 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+        >
+          Buy Now
+        </button></a>
+        
+      </div>
+               <!--MAIN CARD END-->
+
+            
+                             
+                         
+                             
+                             
+                             
+                             
+                              
+                      
+                            
+                             
+                             
+                             
+                      
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                      
+                      
+                     
+                     
+               
+                      
+                       
+
+
+                       
+               
+                
+               
+               
+  
+  
+      
+
+
+</body>
+</html>
