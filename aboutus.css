@@ -1,0 +1,99 @@
+.container {
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 0.2fr 2.6fr ;
+    grid-template-rows: 0.6fr 1.5fr ;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "area-top area-top area-top"
+      "side1 typer side2"
+      "side1 bottom side2";
+    width: 95.2%;
+    height: 100%;
+  }
+  
+  .area-top { grid-area: area-top; }
+  
+  .typer { grid-area: typer; }
+  
+  .side1 { grid-area: side1; }
+  
+  .bottom { grid-area: bottom; }
+  
+  .side2 { grid-area: side2; }
+  
+  
+
+.about-section{
+    background: url(./imgs/Screenshot\ 2021-06-23\ at\ 1.49.14\ AM.png) no-repeat left;
+    background-size: 70%;
+    background-color: #fdfdfd;
+    overflow: auto;
+    padding: 50px 0px;
+}
+
+.inner-container{
+    width: 55%;
+    float: right;
+    background-color: #fdfdfd;
+    padding: 150px;
+}
+
+.inner-container h1{
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.text{
+    font-size: 13px;
+    color: #545454;
+   
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+.skills{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+@media screen and (max-width:1200px){
+    .inner-container{
+        padding: 80px;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .about-section{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    .inner-container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px){
+    .about-section{
+        padding: 0;
+    }
+    .inner-container{
+        padding: 60px;
+    }
+
+
+}
+
+
+     
+
+     
+     
+@media  screen and (max-width: 400px)  {
+
+}
